@@ -2,6 +2,8 @@
 
 namespace ClanCats\Hydrahon\Query\Sql;
 
+use ClanCats\Hydrahon\Query\Expression;
+
 /**
  * Select base 
  * 
@@ -204,7 +206,7 @@ class SelectBase extends Base
     public function whereIn($column, array $options = array())
     {
         if(count($options) == 0) {
-            return $this->where(1, '=', 2);
+            return $this->where(new Expression(1), '=', 2);
         }
 
         return $this->where($column, 'in', $options);
